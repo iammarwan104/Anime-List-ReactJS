@@ -1,7 +1,7 @@
 export default function Skeleton() {
   const skeletonArray = Array.from({ length: 8 }, (_, i) => i);
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <>
       {skeletonArray.map((key) => {
         return (
           <div key={key} className="flex flex-col gap-4 w-full">
@@ -12,6 +12,6 @@ export default function Skeleton() {
           </div>
         );
       })}
-    </div>
+    </>
   );
 }
