@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <>
              <nav>
           <div className="navbar bg-base-100">
             <div className="flex-1">
-              <a className="btn btn-ghost text-xl">daisyUI</a>
+              <Link to={"/"} className="btn btn-ghost text-xl">daisyUI</Link>
             </div>
             <div className="navbar-center hidden lg:flex flex-1">
               <ul className="menu menu-horizontal px-1">
                 <li>
-                  <a>Item 1</a>
+                  <Link to={"kopi"}>kopi</Link>
                 </li>
                 <li>
                   <details>
