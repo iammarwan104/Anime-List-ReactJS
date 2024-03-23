@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+
 export default function Skeleton() {
   const skeletonArray = Array.from({ length: 8 }, (_, i) => i);
+  useEffect(() => {
+    // Auto scroll to the top when SkeletonCard is rendered
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <>
       {skeletonArray.map((key) => {

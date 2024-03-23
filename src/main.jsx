@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./routes/home-page/HomePage";
 import Kopi from "./routes/Kopi";
 import ErrorPage from "./error-page";
+import SeeAllAnime from "./see-all-anime/SeeAllAnime";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/kopi",
         element: <Kopi />,
+      },
+      {
+        path: "/top-anime",
+        element: <SeeAllAnime />,
       },
     ],
   },
