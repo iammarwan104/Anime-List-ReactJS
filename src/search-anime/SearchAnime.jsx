@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link} from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 import CardMovie from "../components/card-movie/Card";
 import Skeleton from "../components/Skeleton";
 import Pagination from "../components/Pagination";
@@ -8,7 +8,7 @@ export default function SearchAnime() {
   const [datas, setDatas] = useState([]);
   const [pages, setPages] = useState(1);
   const [page, setPage] = useState(1);
-
+  const {name} = useParams()
   function handleNext() {
     setPage((pre) => pre + 1);
   }
@@ -19,14 +19,14 @@ export default function SearchAnime() {
 
   async function getData(page) {
     setDatas([])
-    const res = await fetch(`https://api.jikan.moe/v4/anime?q=one%piece&page=${page}`);
+    const res = await fetch(`https://api.jikan.moe/v4/anime?q=${name}&page=${page}`);
     const dataAnime = await res.json();
     setDatas(dataAnime.data);
     setPages(dataAnime.pagination.last_visible_page)
   }
   useEffect(() => {
     getData(page);
-  }, [page]);
+  }, [page, name]);
 
 
   return (

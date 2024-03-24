@@ -1,7 +1,6 @@
 export default  function Pagination({ page, setPage, pages, setPages, handleNext, handlePrev }) {
   // Array kosong
   const arrayKosong =  pages <= 5 ? Array.from({ length: pages }, (_, i) => i+1) : Array.from({ length: 5 }, (_, i) => page <= 2 ? i + page : i + (page - 2)); 
-  console.log(arrayKosong);
   return (
     <>
       <div className="join mx-auto w-fit flex">

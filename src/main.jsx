@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         element: <SeeAllAnime />,
       },
       {
-        path: "/Search-Anime",
+        path: "/Search-Anime/:name",
         element: <SearchAnime />,
       },
     ],

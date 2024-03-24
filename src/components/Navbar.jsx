@@ -1,6 +1,14 @@
-import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const searchValue = useRef("")
+  const navigate = useNavigate()
+  function handleEnter(btn){
+    if (btn.key === "Enter") {
+      navigate(`/Search-Anime/${searchValue.current.value}`)
+    }
+  }
   return (
     <>
       <nav className="shadow-xl">
@@ -36,6 +44,8 @@ export default function Navbar() {
           <div className="flex-none gap-2">
             <div className="form-control">
               <input
+                ref={searchValue}
+                onKeyDown={handleEnter}
                 type="text"
                 placeholder="Search"
                 className="input input-bordered w-24 md:w-auto"
