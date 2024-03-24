@@ -7,6 +7,7 @@ import HomePage from "./routes/home-page/HomePage";
 import Kopi from "./routes/Kopi";
 import ErrorPage from "./error-page";
 import SeeAllAnime from "./see-all-anime/SeeAllAnime";
+import SearchAnime from "./search-anime/SearchAnime";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/Top-Anime",
         element: <SeeAllAnime />,
+      },
+      {
+        path: "/Search-Anime",
+        element: <SearchAnime />,
       },
     ],
   },
