@@ -19,11 +19,11 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/kopi",
+        path: "/Kopi",
         element: <Kopi />,
       },
       {
-        path: "/top-anime",
+        path: "/Top-Anime",
         element: <SeeAllAnime />,
       },
     ],

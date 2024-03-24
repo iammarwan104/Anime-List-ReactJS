@@ -18,10 +18,11 @@ export default function HomePage() {
     <section>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-xl">Top Anime</h1>
-        <Link to={"top-anime"} className="hover:text-blue-400">Lihat Semua</Link>
+        <Link to={"Top-Anime"} className="hover:text-blue-400">Lihat Semua</Link>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {datas.length === 0 ? (
+        {
+        datas.length === 0 ? (
           <Skeleton />
         ) : (
           datas.map((data) => {
@@ -33,7 +34,8 @@ export default function HomePage() {
               />
             );
           })
-        )}
+        )
+        }
       </div>
     </section>
   );
