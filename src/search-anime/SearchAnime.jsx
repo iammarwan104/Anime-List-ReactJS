@@ -1,32 +1,25 @@
 import { useEffect, useState } from "react";
-import { Link, useParams} from "react-router-dom";
 import CardMovie from "../components/card-movie/Card";
 import Skeleton from "../components/Skeleton";
-import Pagination from "../components/Pagination";
+import Pagination from "../components/LibraryPagination";
+import { useParams } from "react-router-dom";
 
 export default function SearchAnime() {
   const [datas, setDatas] = useState([]);
-  const [pages, setPages] = useState(1);
-  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const {name} = useParams()
-  function handleNext() {
-    setPage((pre) => pre + 1);
-  }
-
-  function handlePrev() {
-    setPage((pre) => pre - 1);
-  }
 
   async function getData(page) {
     setDatas([])
     const res = await fetch(`https://api.jikan.moe/v4/anime?q=${name}&page=${page}`);
     const dataAnime = await res.json();
     setDatas(dataAnime.data);
-    setPages(dataAnime.pagination.last_visible_page)
+    setTotalPages(dataAnime.pagination.last_visible_page)
   }
   useEffect(() => {
-    getData(page);
-  }, [page, name]);
+    getData(currentPage);
+  }, [currentPage, name]);
 
 
   return (
@@ -51,7 +44,11 @@ export default function SearchAnime() {
         )
         }
       </div>
-      <Pagination page={page} setPage={setPage} pages={pages} setPages={setPages} handleNext={handleNext} handlePrev={handlePrev}/>
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalPages={totalPages}
+      />
     </section>
   );
 }
