@@ -34,6 +34,7 @@ export default function SeeAllAnime() {
               <CardMovie
                 key={data.mal_id}
                 title={data.title}
+                malId={data.mal_id}
                 urlImage={data.images.webp.image_url}
               />
             );

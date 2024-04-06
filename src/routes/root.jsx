@@ -22,8 +22,9 @@ export default function Root() {
     <>
       <Navbar/>
       <div className="px-8 mt-4">
-      <BreadCrumbs path={path} />
-        <Outlet/></div>
+        <BreadCrumbs path={path} />
+        <Outlet/>
+      </div>
     </>
   );
 }

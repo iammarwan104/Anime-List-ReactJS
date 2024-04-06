@@ -37,6 +37,7 @@ export default function SearchAnime() {
               <CardMovie
                 key={data.mal_id}
                 title={data.title}
+                malId={data.mal_id}
                 urlImage={data.images.webp.image_url}
               />
             );
