@@ -8,7 +8,7 @@ import Kopi from "./routes/Kopi";
 import ErrorPage from "./error-page";
 import SeeAllAnime from "./see-all-anime/SeeAllAnime";
 import SearchAnime from "./search-anime/SearchAnime";
-import DetailAnime from "./detail-anime/DetailAnime";
+import DetailAnime, { loader as detailAnimeLoader} from "./detail-anime/DetailAnime";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +34,9 @@ const router = createBrowserRouter([
         element: <SearchAnime />,
       },
       {
-        path: "/Detail-Anime/:mal_id",
+        path: "/Detail-Anime/:malId",
         element: <DetailAnime />,
+        loader : detailAnimeLoader
       },
     ],
   },
