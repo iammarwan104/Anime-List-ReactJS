@@ -1,19 +1,18 @@
-import { useEffect } from "react";
 import Skeleton from "../../components/Skeleton";
 import CardMovie from "../../components/card-movie/Card";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { getTopAnime } from "../../libs/getTopAnime";
+
+export async function loader() {
+  const contact = await getTopAnime("limit=8");
+  return { contact };
+}
 
 export default function HomePage() {
-  const [datas, setDatas] = useState([]);
-  async function getData() {
-    const res = await fetch("https://api.jikan.moe/v4/top/anime?limit=8");
-    const dataAnime = await res.json();
-    setDatas(dataAnime.data);
-  }
-  useEffect(() => {
-    getData();
-  }, []);
+  const {contact} = useLoaderData();
+  const animesData = contact.data;
+console.log(animesData);
+  
   return (
     <section>
       <div className="flex justify-between items-center mb-6">
@@ -22,10 +21,10 @@ export default function HomePage() {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {
-        datas.length === 0 ? (
+        animesData.length === 0 ? (
           <Skeleton />
         ) : (
-          datas.map((data) => {
+          animesData.map((data) => {
             return (
               <CardMovie
                 key={data.mal_id}

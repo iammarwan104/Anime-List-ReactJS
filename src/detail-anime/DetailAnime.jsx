@@ -6,6 +6,7 @@ import ReadMoreReact from "read-more-react/dist/components/ReadMoreReact";
 
 export default function DetailAnime() {
   const { mal_id } = useParams();
+  console.log(mal_id);
   const [datas, setDatas] = useState([]);
   async function getData(mal_id) {
     const res = await fetch(`https://api.jikan.moe/v4/anime/${mal_id}`);
@@ -15,7 +16,7 @@ export default function DetailAnime() {
   useEffect(() => {
     getData(mal_id);
   }, [mal_id]);
-  
+
   const opts = {
     height: "230",
     width: "440",
@@ -89,11 +90,13 @@ export default function DetailAnime() {
         </div>
       </div>
 
-      <YouTube
+      {/* <YouTube
         videoId={datas.trailer.youtube_id}
         opts={opts}
         className="absolute top-0 right-0"
-      />
+      /> */}
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ZEkwCGJ3o7M?autoplay=1" frameborder="0" allowfullscreen></iframe>
+
       {/* <div className="w-[440px] h-[230px] bg-slate-300 absolute top-0 right-0">kopi</div> */}
     </div>
   );

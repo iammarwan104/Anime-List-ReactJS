@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Root from "./routes/root";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import HomePage from "./routes/home-page/HomePage";
+import HomePage, { loader as loaderHomePage } from "./routes/home-page/HomePage";
 import Kopi from "./routes/Kopi";
 import ErrorPage from "./error-page";
 import SeeAllAnime from "./see-all-anime/SeeAllAnime";
@@ -19,6 +19,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+        loader : loaderHomePage
       },
       {
         path: "/Kopi",
