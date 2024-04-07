@@ -2,6 +2,7 @@ import Skeleton from "../../components/Skeleton";
 import CardMovie from "../../components/card-movie/Card";
 import { Link, useLoaderData } from "react-router-dom";
 import { getTopAnime } from "../../libs/getTopAnime";
+import { useEffect, useState } from "react";
 
 export async function loader() {
   const contact = await getTopAnime("limit=8");
@@ -9,10 +10,11 @@ export async function loader() {
 }
 
 export default function HomePage() {
+  const [animesData, setAnimesData] = useState([])
   const {contact} = useLoaderData();
-  const animesData = contact.data;
-console.log(animesData);
-  
+  useEffect(()=>{
+      setAnimesData(contact.data)
+  },[contact])
   return (
     <section>
       <div className="flex justify-between items-center mb-6">
