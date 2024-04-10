@@ -11,7 +11,7 @@ export default function BreadCrumbs({path}) {
               if(p === ""){
                 return <li key={key}><Link to={"/"}>Home</Link></li>
               }else{
-                return <li key={key}><Link to={p}>{p.replace(/[-%20]/g, " ")}</Link></li>
+                return <li key={key}><Link to={p}>{p.replace(/[-%]/g, " ")}</Link></li>
               }
               
             })
