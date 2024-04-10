@@ -34,6 +34,10 @@ const router = createBrowserRouter([
         element: <SearchAnime />,
       },
       {
+        path: "/Search-Anime",
+        element: <SearchAnime />,
+      },
+      {
         path: "/Detail-Anime/:malId",
         element: <DetailAnime />,
         loader : detailAnimeLoader

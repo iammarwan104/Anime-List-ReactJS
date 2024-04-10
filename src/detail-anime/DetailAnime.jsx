@@ -102,8 +102,8 @@ export default function DetailAnime() {
               <div
                 className={`${
                   showVideo ? "block" : "hidden"
-                } w-[312px] h-[175.50px]  md:w-[450px] md:h-[253.13px]  lg:w-[500px] lg:h-[281.25px] xl:w-[576px] xl:h-[324px] border-2`}>
-                  <YouTube videoId={animeData.trailer.youtube_id} className="h-full w-full border-2 border-red-500" opts={{width : "100%", height : "100%"}}/>
+                } w-[312px] h-[175.50px]  md:w-[450px] md:h-[253.13px]  lg:w-[500px] lg:h-[281.25px] xl:w-[576px] xl:h-[324px]`}>
+                  <YouTube videoId={animeData.trailer.youtube_id} onError={()=> alert("Maaf video ini rusak")} className="h-full w-full" opts={{width : "100%", height : "100%"}}/>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import { Case } from "change-case-all";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -6,7 +7,7 @@ export default function Navbar() {
   const navigate = useNavigate()
   function handleEnter(btn){
     if (btn.key === "Enter") {
-      navigate(`/Search-Anime/${searchValue.current.value}`)
+      navigate(`/Search-Anime/${Case.capital(searchValue.current.value)}`)
     }
   }
   return (

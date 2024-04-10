@@ -10,22 +10,34 @@ export default function SearchAnime() {
   const [currentPage, setCurrentPage] = useState(1);
   const {name} = useParams()
 
-  async function getData(page) {
+  async function getDataWithNamePage(page) {
     setDatas([])
     const res = await fetch(`https://api.jikan.moe/v4/anime?q=${name}&page=${page}`);
     const dataAnime = await res.json();
+    console.log(dataAnime.data);
     setDatas(dataAnime.data);
     setTotalPages(dataAnime.pagination.last_visible_page)
   }
+
+  async function getDataWithoutNamedanPage(page) {
+    setDatas([])
+    const res = await fetch(`https://api.jikan.moe/v4/anime?page=${page}`);
+    const dataAnime = await res.json();
+    setDatas(dataAnime.data);
+    console.log(dataAnime.data);
+    setTotalPages(dataAnime.pagination.last_visible_page)
+  }
+
   useEffect(() => {
-    getData(currentPage);
+    !name ? getDataWithoutNamedanPage(currentPage) : getDataWithNamePage(currentPage);
+    console.log("terender");
   }, [currentPage, name]);
 
 
   return (
     <section className="mb-8">
       <div className="text-center mb-6">
-        <h1 className="text-xl">Top Anime</h1>
+        <h1 className="text-xl">{name}</h1>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {

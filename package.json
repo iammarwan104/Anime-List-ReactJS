@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "change-case-all": "^2.1.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "rc-progress": "^4.0.0",
