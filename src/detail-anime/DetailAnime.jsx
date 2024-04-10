@@ -35,7 +35,7 @@ export default function DetailAnime() {
     console.log(getTitleAnimes());
   }, [contact]);
 
-  const kopi = animeData.score < 11 ? animeData.score * 10 : null;
+  const kopi = animeData.score < 11 ? (animeData.score * 10).toFixed(1) : null;
   return (
     <>
       {animeData.length === 0 ? (
@@ -139,7 +139,7 @@ export default function DetailAnime() {
                 className="radial-progress text-primary"
                 style={{ "--value": kopi }}
                 role="progressbar">
-                {kopi}%
+                {animeData.score}%
               </div>
             </div>
           </div>
